@@ -1,0 +1,113 @@
+1. Consider a cluster with 100 nodes, 4 CPU's per node, 16 CPU cores per CPU and 4 hyper-threads per core.  What is the maximum possible number of simultaneously running parallel threads?
+
+Note that a hyper-thread (also called instruction pipeline) of a modern CPU to an operating system appears like a CPU core. Therefore a hyper-thread can be seen as a virtual CPU core
+Answer : 25600 = 100 nodes * 4 CPU's per node * 16 CPU cores per CPU * 4 hyper-threads per core
+
+2. Consider a relational database installed on some server in a data center. Consider also an ApacheSpark cluster in the same data center reading data from the database. Which storage topology are you using in that particular case?
+Network Attached Storage (off-node storage approach) or JBOD
+Answer : Network Attached Storage (off-node storage approach)/ A remote relational database behaves basically like a remote file system. The only difference is that an additional data processing engine sits in between ApacheSpark and the data. But from a topological perspective this doesn't make a difference
+
+Just a bunch of disks (JBOD) / Direct Attached Storage means that hard drives are built into the compute nodes or are connected to them using one-to-one connections. Therefore some sort of a virtual cluster file system like HDFS has to be used in order to make them appear as one single large disk drive
+
+3. RDDs are lazy. What does this mean?
+Answer : Data stored in RDDs is only read from the underlying storage systems when needed.
+        This concept is called lazy evaluation and due to the inventors of functional programming languages. This means that functions are only executed if the output of their computations is needed for further downstream data processing
+
+### QUIZ:Data storage solutions, and ApacheSpark
+
+rdd = sc.parallelize(range(100))
+rdd2 = range(100)
+
+1.Please consider the following code.  Where is data in "rdd" stored physically?
+Answer : In main-memory of ApacheSpark worker nodes
+2. Where is data in "rdd2" stored physically?
+Answer : On the local Driver machine
+3. What is the parallel version of the following code? len(range(9999999999))
+Answer : sc.parallelize(range(9999999999)).count()
+4. Which storage solutions support seamless modification of schemas?
+Answer : ObjectStorage, NoSQL
+5. Which storage solutions support dynamic scaling on storage?
+Answer : ObjectStorage, NoSQL
+6. Which storage solutions support normalization and integrity checks on data out of the box? 
+Answer : SQL/Relational Databases
+
+4. What happens if in a globally distributed and replicated Cloudant environment writing to one replica fails?
+Answer : Writing to the rest of the replicas still is performed. Through usage of internaly revision IDs the failed replica is eventually catching up and integrate this write operation into it's own replica. This is called "eventual consistency" 
+
+5. Which is faster, the relational API on top of DataFrames or SQL?
+Answer : Calls to the DataFrame API as well as SQL statements are converted to the exactly same internal representation, therefore it doesn't matter what you are using. In addition you can also mix and match those.
+
+6. What elements make up a schema?
+Answer : Column names, Columns data types
+
+7. How is the internal data structure called where the Catalyst Optimizer performs its rearrangements?  
+Answer : An execution plan in form of a tree
+
+8. Which statement about ApacheSparkSQL is correct?
+Answer : ApacheSparkSQL is always preferred over usage of RDDs since the Catalyst Optimizer is doing a very good job optimizing the internal calls to the RDD API.
+
+9. "Flow 1" contains a NodeRED application to simulate IoT sensor data. This flow is running in the cloud. In a real scenario, where would this flow normally run? 
+Answer : On a IoT Gateway, On a IoT Device 
+
+### QUIZ:ApacheSparkSQL and Cloudant
+1. What statements are true about cloudant? 
+Answer : Cloudant is based on ApacheCouchDB, Cloudant is a NoSQL database, Cloudant is meant for storing JSON documents effectively, BigCouch is a component between the client and a set of CouchDB services used for horizontal scaling 
+2. Please have a look at the following flow: Which nodes are actually simulating sensors of a hypothetical IoT device?
+Answer : Fluid Simulator, Voltage Sensor Simulator, Mechanical Sensor Simulator
+3. In the "End-to-End Scenario", where does all the data get stored in?
+Answer : Cloudant (ApacheCouchDB)
+4. How does the Catalyst optimizer work internally?
+Answer : A LEP is created from an SQL AST. This LEP is transformed (optimised). 
+Then multiple PEPs are created from the optimised LEP. Finnaly, based on
+ cost based statistics an optimal PEP is chosen to be executed.  
+5. What is the advantage of using ApacheSparkSQL over RDDs? 
+Answer : Catalyst and Tungsten are able to optimise the execution, so are more 
+likely to execute more quickly than if you would had implemented 
+something equivalent using the RDD API., The API is simpler and doesn't require specific functional programming skills
+
+### QUIZ:Averages and standard deviation
+1. What is the advantage of median over mean
+Answer : Median is more outlier resistent. Odd values influence median less than mean.
+
+### QUIZ:Skewness and kurtosis
+1. The higher the kurtosis value, the longer the "tails" of the distributions are. So, kurtosis measures the outlier content. The higher the kurtosis value, the more outliers are in the dataset because the more far a values is away from the mean, the more it contributes to the kurtosis. In other words, the distribution has long tails. Which are examples of long tailed datasets?
+Answer : 
+- Velocity values recorded from all connected cars over one year in a country
+- Latitude coordinates of all rain drops fallen on earth for the last 60 minutes
+- Number of minutes a lift in a smart building was waiting at each floor over the last 24h
+2. Question 5
+Consider a connected car. We are measuring the car's velocity 600 times per minute. Note that in 
+time intervals the car stands the velocity of zero is measured. If we now plot the distribution of velocity 
+values, is this distribution positively or negatively skewed?
+Some further explaination from the discussion forum:
+Just imagine a car driving in Bangalore, so if you measure it's  velocity, most of the time it is zero - sometimes it is between 3-5 km/h  and rarely above, so please imagine how such a chart looks like if you  have velocity on the x axis and frequency (how often you've measured  that velocity) on the y axis
+Answer : positively skewed
+
+### QUIZ:Covariance, correlation and multidimensional Vector Spaces
+1. (2,3)
+2. (1,2,3)
+3. (1.5,1.5,1.5), (1,2,1.5) correct with another 1 choice
+    (1.5,2,3) incorrect
+4. Data point (1.5,1.5,1.5) lies within a cluster , Data point (2.1,1.9,2.2) lies within a cluster, There is one cluster centroid at (1,1,1) correct with another 1 choice
+    There is one cluster centroid at (1,2,1) incorrect
+5. 0.709
+6. 4.056
+7. Question 7
+The correlation between the following two lists is zero, can you explain why?
+1,2,3,4,5,6,7
+7,6,5,4,5,6,7
+Answer : Correlation of 1st half of the list is negative and between the last half of the list is positive so they cancel out
+8. Please select all data with potentially high correlation
+Answer : Season of Year+Amount of Rain, Outside temperature + Power consumption of AC, Crop fitness + Amount of water available
+
+
+### QUIZ:Visualization and dimension reduction
+1. Among dimension reduction, what technique exist to visualize more than three dimensions in a single plot? 
+Answer : Color coding for discrete dimensions, Using different symbols apart from simple points for discrete dimensions
+Incorrect: Sum Kurtosis and Skewness together for each row, Apply Fast Fourier Transformation
+2. What properties are true about PCA for dimension reduction?
+Answer : PCA is a linear transformation, this means most of the original propertes of your data are preserved, PCA transforms your dataset so that the first k dimensions have the lowest correlation among each other
+3. PCA dimensionality reduction is lossy
+4. 5
+5. Answer : This is a box plot, There are more than 15 outliers present, Kurtosis is >1, Skew is > 1, >50% of all values are <30, Median is >20
+
