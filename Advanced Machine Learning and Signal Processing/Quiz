@@ -57,7 +57,7 @@ QUIZ: Testing, X-Validation, GridSearch
 1. What is the purpose of a test set in contrast of a train and validation set?
 A test set is used to assess over-fitting hyper-parameters
 2. When adding pipeline or model hyper-parameters to the search grid - what is the relation between number of tune-able hyper-parameters and the growth in computational complexity?
-logarithmic , linear, cubic incorrect
+exponential
 
 QUIZ: Ensemble Learning
 1. How are Random Forest different in re-sampling from Gradient Boosted Trees?
