@@ -86,10 +86,8 @@ Answer : positively skewed
 ### QUIZ:Covariance, correlation and multidimensional Vector Spaces
 1. (2,3)
 2. (1,2,3)
-3. (1.5,1.5,1.5), (1,2,1.5) correct with another 1 choice
-    (1.5,2,3) incorrect
-4. Data point (1.5,1.5,1.5) lies within a cluster , Data point (2.1,1.9,2.2) lies within a cluster, There is one cluster centroid at (1,1,1) correct with another 1 choice
-    There is one cluster centroid at (1,2,1) incorrect
+3. (1.5,1.5,1.5), (1,2,1.5), (2.5,1.5,1.5)
+4. Data point (1.5,1.5,1.5) lies within a cluster , Data point (2.1,1.9,2.2) lies within a cluster, There is one cluster centroid at (1,1,1), There is one cluster centroid at (2,2,2)
 5. 0.709
 6. 4.056
 7. Question 7
@@ -103,8 +101,7 @@ Answer : Season of Year+Amount of Rain, Outside temperature + Power consumption 
 
 ### QUIZ:Visualization and dimension reduction
 1. Among dimension reduction, what technique exist to visualize more than three dimensions in a single plot? 
-Answer : Color coding for discrete dimensions, Using different symbols apart from simple points for discrete dimensions
-Incorrect: Sum Kurtosis and Skewness together for each row, Apply Fast Fourier Transformation
+Answer : Color coding for discrete dimensions, Using different symbols apart from simple points for discrete dimensions, Add multiple lines to a run chart
 2. What properties are true about PCA for dimension reduction?
 Answer : PCA is a linear transformation, this means most of the original propertes of your data are preserved, PCA transforms your dataset so that the first k dimensions have the lowest correlation among each other
 3. PCA dimensionality reduction is lossy
