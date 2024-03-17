@@ -1,0 +1,140 @@
+QUIZ: ML Pipelines
+1. What are Machine Learning Pipelines?
+Answer: A way of speeding up ML development, run faster
+2. How is the class called which transforms a string class label to a class index in SparkML?
+Answer: StringIndexer
+3. What is the class called which transforms a set of columns in a data frame to a single DenseVector representation in SparkML?
+Answer: VectorAssembler
+
+QUIZ: Splitting and Overfitting
+1. When do we have an over-fitting problem?
+Answer: If we perform well on the training set and poorly on the validation set
+
+QUIZ: Evaluation Measures
+1. What's the accuracy given the true labels t and the predicted labels p
+Note: This is a classification problem, so the value needs to be between 0 and 1
+Answer: accuracy_score coding 
+
+from sklearn.metrics import accuracy_score
+# Calculating the accuracy of classifier
+print(f"Accuracy of the classifier is: {accuracy_score(t, p)}")
+
+
+QUIZ: ans: Logistic Regression is a supervised machine learning model to predict a discrete (categorical) value
+
+QUIZ: Why are Support Vector Machines also called "maximum margin classifier"?
+Answer: Because distances from the decision boundaries are maximized when computing the hyper-plane of separation
+
+1. Bayes' theorem is used for reversing the order of joint probabilities.
+False
+2. A box contains 3 lemons and 6 apples. We draw two fruits at random. What's the probability of getting 2 lemons? Please round your answer to 3 decimal places.
+
+the probability of lemon is 2/3
+the probability of apple is 2/6
+the probability of lemon from all is 2/9 
+
+3. You roll a six sided die. What's the probability of rolling a 3 or a 6? Please round your answer to 3 decimal places.
+2/6
+4.Bayesian inference is a method of inference where the probability of a _________________ is updated as new evidence becomes available.
+hypothesis
+5. Why is the Gaussian distribution often used in machine learning?
+- The process of sampling any random distribution with finite variance and adding the numbers together produces a Gaussian distribution (Central Limit Theorem)
+- Occurs naturally in many situations (age, height of people, blood pressure readings etc.)
+- It is easily described (you only need a mean and a variance)
+- All of the above
+6.The process of Bayesian inference involves the following steps:
+
+1.Collect data
+2.Calculate the likelihood
+3.Obtain a posterior
+4.Obtain a prior
+4, 1, 2, 3
+
+8.Naive Bayes is considered "naive" because
+the input features are considered to be independent.
+
+QUIZ: Testing, X-Validation, GridSearch
+1. What is the purpose of a test set in contrast of a train and validation set?
+A test set is used to assess over-fitting hyper-parameters
+2. When adding pipeline or model hyper-parameters to the search grid - what is the relation between number of tune-able hyper-parameters and the growth in computational complexity?
+logarithmic , linear, cubic incorrect
+
+QUIZ: Ensemble Learning
+1. How are Random Forest different in re-sampling from Gradient Boosted Trees?
+Sampling is done using Bootstrapping in RandomForests wheres Gradient Boosted Trees use Boosting
+2. Which model is mostly prune to overfitting?
+Decision Trees
+
+QUIZ: Regularization
+1. Which regularization technique is penalizing large model parameters most?
+L2 Regularization
+2. When is it appropriate to use Regularization
+To prevent overfitting
+
+QUIZ: Clustering
+1. Which of the following algorithms needs you to pre-specify the expexted number of clusters?
+kmeans
+2. Which algorithm let's you visually determine a good number of clusters based on it's output?
+hierarchical clustering
+
+-1. What are the implications of using highly dimensional data?
+Data becomes sparse as we add dimensions, 
+Adding more dimensions reduces the collinearity in the data
+-Adding more dimensions reduces the size of the data set,
+Distances loose meaning in high dimensions
+2. The process of reducing the number of random variables by obtaining a smaller set of artificial features is known as
+feature reduction
+3. What are some linear methods for dimensionality reduction?
+Principal Component Analysis (PCA)
+Linear Discriminant Analysis (LDA)
+4. Which line gives the direction of greatest variance in the data set plotted above?
+red
+5. We use _______________ to measure how a group of random variables vary together.
+covariance
+6.Using PCA to reduce the dimensionality of a data set involves the following steps:
+1. Centre the data
+2. Find the eigenvalues and eigenvectors of Sigma
+3. Compute the covariance matrix
+4. Select new dimensions and project the data
+1, 3, 2, 4
+7. In PCA, the second principal component is ______________ to the first principal component.
+perpendicular
+8. SystemML provides an out-of-the-box implementation of PCA.
+True
+
+QUIZ: Fourier Transform
+1. The Fourier transform is an invertible transformation between the time and frequency domain representations of a signal.
+Ture
+2. 
+3. The plot above shows a signal in the
+time domain
+4. The reduction of a continuous time signal to a discrete time signal is known as  
+sampling
+5. (graph plotted with a shape wave)
+The sampling rate is too low
+6. 
+The frequencies of A and B are 3.0 and 5.0 Hz.
+The amplitudes of A and B are 2.0 and 3.0
+7. A known limitation of FT/DFT is that it requires an infinite series of sinusoids to represent a signal, so it cannot be used efficiently in a discrete setting.
+False
+8. Discrete Fourier Transform is slower compared to Fast Fourier Transform.
+Correct. The computational complexity of DFT is O(n^2) in contrast to O(nlog(n)) for FFT.
+
+QUIZ: Wavelet Transform
+1. A signal that does not change in time is said to be generated by
+a stationary process
+2. Which of the following signals are generated by a stationary process
+white noise (a signal containing many frequencies with equal intensities)
+a sum of multiple sine waves, each having a fixed frequency and amplitude
+3. A key limitation of Fourier transform is that it cannot provide information on when specific frequencies occur in the signal.
+True
+4. The visual representation of a wavelet transform is called
+a scaleogram
+5. The wavelet defined by the function ψ(t) and used in the scaling and translation process is called
+mother wavelet
+-6. The x and y axes of a 2D scaleogram represent
+time, amplitude, scale
+7. Passing the signal through a series of low pass and high pass filters is a step in the calculation of
+Discrete Wavelet Transform (DWT)
+8. 
+a non-stationary process
