@@ -1,0 +1,131 @@
+QUIZ: DeepLearning Fundamentals
+1. What is an example of a vector-vector multiplication?
+(1,2,3) * (4,5,6) = 32
+2. Which equation is correct give the following vectors?
+Note: The "%*%" symbol is used to denote the "dot product"
+w = (0.3,0.5,0.7)
+x = (3,5,7)
+
+w %*% x = 0.3 * 3 + 0.5 * 5 + 0.7 * 7
+3. For which task an LSTM Neural Network is best suited?
+Time-series analysis
+Any type of sequence processing including Text and DNA
+4. To train an auto-encoder, what data is shown to the neural network on the right hand side?
+X - The same data as on the left hand side
+5. Which dimension reduction technique is limited because it provides only a linear transformation of the data?
+PCA - Principal Component Analysis
+6. Which optimization technique is the most commonly used for Neural Network training?
+Gradient Descent
+7. What are examples of a one-hot encoded vector?
+(0,0,0,0,0,0,1,0,0,0)
+
+QUIZ: TensorFlow
+1. TensorFlow is a library for arbitrary numerical computation not limited to DeepLearning only
+2. What is a TensorFlow placeholder?
+A way to add data to the TensorFlow execution graph at a later stage
+3. What data is usually stored in a TensorFlow variable?
+The weight matrix W
+4. What statements are correct in respect to a unhealthy value distribution (histogram) of values in the weight matrix?
+Most of the values centered very close to zero forces gradients to become very small
+A uniform distribution indicates a lack of parameter updates and therefore problems with training
+Values at the far end of the spectrum are indicating over-saturation of the weight matrix
+5. What is the relationship between accuracy and loss in a healthy and working neural network?
+Both values should behave inverse during neural network training
+6. Which statements about automatic differentiation in TensorFlow are correct?
+Every operator in TensorFlow has registered the first derivative of it's operation as well. Therefore TensorFlow can apply the chain rule of automatic differentiation in order to compute the 1st derivative of any complex function
+
+QUIZ: TensorFlow 2.x
+1. What are the most important new features in TensorFlow 2.x?
+Eager Execution
+Keras as official high level API for Deep Learning
+2. With eager execution an TensorFlow session is not needed anymore
+3. Tightly integrating Keras as official high level API into TensorFlow has many advantages
+
+QUIZ: Apache SystemML
+1. What's are the most important similarities between SystemML and Tensorflow?
+Both are OpenSource and totally free of charge
+Both are a linear algebra computing framework using a declarative approach of expressing computations and shipping those to to execution engine
+-2. What's are the most important differences between SystemML and Tensorflow?
+Apache SystemML is mostly used in Machine Learning research
+TensorFlow is a very established framework and slowly becoming de-facto standard in Deep Learning together with PyTorch
+
+Apache SystemML is mostly used in Machine Learning research
+SystemML takes statistics about your data into account to create a parallel program that runs on a compute cluster that is optimized for the type of data you have
+
+QUIZ: PyTorch Introduction
+1. On which objects the PyTorch operations are running?
+On tensors
+2. Which size has the tensor created by this operation? m_tensor = torch.randn((6, 3, 28, 28))
+6x3x28x28
+3. The tensor of wich size returns the following indexing of a tensor of size  5x4x4x4?
+m_tensor = torch.randn((5, 4, 4, 4))
+m_tensor[0]
+
+4x4x4
+
+4.
+5. Which function(s) can you call to reshape a PyTorch tensor?
+view(args)
+- 6. How is the computation graph created with PyTorch?
+xx Computation graph defined staticaly during the model definition
+xx PyTorch uses a unique approach of tape-based differentiation, hence computation graph is not created at all
+Computation graph is defined dynamically via autograd.Variable PyTorch components
+
+QUIZ: Anomaly Detection
+1.Which statements are true with respect to unsupervised machine learning?
+There exists more unlabeled data than labeled
+
+ correct all 2. IBM Watson Studio provides a file system underlying the jupyter notebooks of roughly 100 TeraByte for staging. Why it is not a good idea to use this as permanent data store?
+This filesystem is volatile. So IBM can reset it at any point in time. Therefore, if data needs to be kept for long-term, ObjectStore is the best choice
+
+model.add(LSTM(42,input_shape=(23,5),return_sequences=True))
+3. What's the input dimensionality of this layer?
+  5
+4. How many LSTM cells does this layer have?
+  42
+5. How many future time steps does this layer predict?
+  23
+6. Which type of neurons are the best fit for time-series data?
+LSTM Long-Short-Term-Memory networks
+
+QUIZ: Sequence Classification with Keras LSTM Network
+1. What is the main characteristic of the stateful LSTM Network?
+Stateful LSTM uses batch n last output hidden states and cell states as initial states for the batch n+1
+2. In which case would you prefer stateless over stateful LSTM?
+When sequences in the batches are not related to each other, e.g. represent complete sentences
+-3. Batch-size and trainings-set size
+Batch-size can impact (prediction) performance of LSTM Network
+The trainings-set size must be divisible by the batch-size for stateful and stateless LSTM Network
+
+The trainings-set size must be divisible by the batch-size for the stateful LSTM only
+For a stateful LSTM the batch-size must be always divisible by 8
+4. Loss Function
+Mean Absolute Error (MAE) can be more outlier resistant
+5. What is the difference between Cell State and Hidden State?
+LSTM Cell State is its memory
+LSTM Hidden State is equivalent to the Cell output
+6. Given is the formula to compute the number of LSTM layer parameters:
+PARAMETERS = 4 * LSTM outputs size * (weights LSTM inputs size + weights LSTM outputs size + 1  bias variable)
+Please, calculate the parameters for the Layer with the output-shape (64, 30, 10). This the first layer after the input-layer, which has the shape (64, 30, 1). 
+480
+
+QUIZ: Image Classification
+1. Which neural network layer types are most commonly used in image classicifation?
+Convolution
+MaxPooling
+2. What is the purpose of a Dropout layer?
+Prevent over-fitting on the training set
+3. 
+Imagenet is a pre-classified dataset of images
+Resnet50 is a special Neural Network topology for classifying images
+
+QUIZ: NLP
+1. Word2Vec is a special case of an auto-encoder
+2. cat
+3. Consider a vocabulary size of 1.000.000 words, a 100 dimensional Embedding in a ternary (three output classes) classification task - which of the following neural network configuration works best? 
+i -> number of input layer neurons
+h -> number of hidden layer neurons
+o -> number of output layer neurons
+a -> activation function of output layer (softmax)
+
+i = 1.000.000, h = 100, o = 3, a = softmax
