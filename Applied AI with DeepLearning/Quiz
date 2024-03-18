@@ -82,7 +82,7 @@ QUIZ: Anomaly Detection
 1.Which statements are true with respect to unsupervised machine learning?
 There exists more unlabeled data than labeled
 
- correct all 2. IBM Watson Studio provides a file system underlying the jupyter notebooks of roughly 100 TeraByte for staging. Why it is not a good idea to use this as permanent data store?
+2. IBM Watson Studio provides a file system underlying the jupyter notebooks of roughly 100 TeraByte for staging. Why it is not a good idea to use this as permanent data store?
 This filesystem is volatile. So IBM can reset it at any point in time. Therefore, if data needs to be kept for long-term, ObjectStore is the best choice
 
 model.add(LSTM(42,input_shape=(23,5),return_sequences=True))
@@ -100,12 +100,10 @@ QUIZ: Sequence Classification with Keras LSTM Network
 Stateful LSTM uses batch n last output hidden states and cell states as initial states for the batch n+1
 2. In which case would you prefer stateless over stateful LSTM?
 When sequences in the batches are not related to each other, e.g. represent complete sentences
--3. Batch-size and trainings-set size
+3. Batch-size and trainings-set size
 Batch-size can impact (prediction) performance of LSTM Network
-The trainings-set size must be divisible by the batch-size for stateful and stateless LSTM Network
-
 The trainings-set size must be divisible by the batch-size for the stateful LSTM only
-For a stateful LSTM the batch-size must be always divisible by 8
+
 4. Loss Function
 Mean Absolute Error (MAE) can be more outlier resistant
 5. What is the difference between Cell State and Hidden State?
