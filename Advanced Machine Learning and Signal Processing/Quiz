@@ -1,6 +1,8 @@
 QUIZ: ML Pipelines
 1. What are Machine Learning Pipelines?
-Answer: A way of speeding up ML development, run faster
+Answer: A way of speeding up ML development
+        A way of making ML algorithms run faster
+        A way of expressing your complete end-2-end machine learning flow within a single framework with a homogeneous API
 2. How is the class called which transforms a string class label to a class index in SparkML?
 Answer: StringIndexer
 3. What is the class called which transforms a set of columns in a data frame to a single DenseVector representation in SparkML?
@@ -77,10 +79,8 @@ kmeans
 2. Which algorithm let's you visually determine a good number of clusters based on it's output?
 hierarchical clustering
 
--1. What are the implications of using highly dimensional data?
+1. What are the implications of using highly dimensional data?
 Data becomes sparse as we add dimensions, 
-Adding more dimensions reduces the collinearity in the data
--Adding more dimensions reduces the size of the data set,
 Distances loose meaning in high dimensions
 2. The process of reducing the number of random variables by obtaining a smaller set of artificial features is known as
 feature reduction
@@ -132,8 +132,8 @@ True
 a scaleogram
 5. The wavelet defined by the function ψ(t) and used in the scaling and translation process is called
 mother wavelet
--6. The x and y axes of a 2D scaleogram represent
-time, amplitude, scale
+6. The x and y axes of a 2D scaleogram represent
+time, scale
 7. Passing the signal through a series of low pass and high pass filters is a step in the calculation of
 Discrete Wavelet Transform (DWT)
 8. 
