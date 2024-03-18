@@ -45,19 +45,10 @@ QUIZ: Apache SystemML
 1. What's are the most important similarities between SystemML and Tensorflow?
 Both are OpenSource and totally free of charge
 Both are a linear algebra computing framework using a declarative approach of expressing computations and shipping those to to execution engine
--2. What's are the most important differences between SystemML and Tensorflow?
+2. What's are the most important differences between SystemML and Tensorflow?
 Apache SystemML is mostly used in Machine Learning research
 TensorFlow is a very established framework and slowly becoming de-facto standard in Deep Learning together with PyTorch
-
-Apache SystemML is mostly used in Machine Learning research
 SystemML takes statistics about your data into account to create a parallel program that runs on a compute cluster that is optimized for the type of data you have
-
-SystemML takes statistics about your data into account to create a parallel program that runs on a compute cluster that is optimized for the type of data you have
-TensorFlow is a very established framework and slowly becoming de-facto standard in Deep Learning together with PyTorch
-
-SystemML takes statistics about your data into account to create a parallel program that runs on a compute cluster that is optimized for the type of data you have
-
-TensorFlow is a very established framework and slowly becoming de-facto standard in Deep Learning together with PyTorch
 
 QUIZ: PyTorch Introduction
 1. On which objects the PyTorch operations are running?
